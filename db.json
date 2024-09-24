@@ -7,17 +7,19 @@
         "genero": "Ação, Aventura, Shounen",
         "ano": "2019",
         "temporadas": "4 temporadas",
-        "classificacao": "A16"
+        "classificacao": "A16",
+        "trailer": "https://www.youtube.com/watch?v=KN921po7cEE"
     },
     {
         "id": "1",
         "titulo": "Attack on Titan: Shingeki no Kyojin ",
         "descricao": "Eren Jaeger jurou eliminar todos os Titãs, mas em uma batalha desesperada ele se torna aquilo que mais odeia. Com seus novos poderes, ele luta pela liberdade da humanidade, combatendo os monstros que ameaçam seu lar. Mesmo depois de derrotar a Titã Fêmea, Eren não consegue descansar - uma horda de Titãs se aproximam da Muralha Rose e a batalha em nome da humanidade continua!",
-        "poster": "/img/",
+        "poster": "/img/attack_on_titan.jpg",
         "genero": "Ação, Aventura, Drama, Fantasia, Suspense",
         "ano": "2013",
         "temporadas": "4 temporadas",
-        "classificacao": "A16"
+        "classificacao": "A16",
+        "trailer": "https://www.youtube.com/watch?v=6MRxT8kz30k"
     }
 ]
 }

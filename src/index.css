@@ -2,6 +2,12 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+:root {
+	--azul: #61DAFB;
+	--preto: #000000;
+	--branco: #FFFFFF;
+	--cinza: #999999;
+  }
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
