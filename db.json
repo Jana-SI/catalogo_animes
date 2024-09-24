@@ -1,0 +1,23 @@
+{
+    "Animes":[{
+        "id": "0",
+        "titulo": "Demon Slayer: Kimetsu no Yaiba",
+        "descricao": "Japão, era Taisho. Tanjiro, um bondoso jovem que ganha a vida vendendo carvão, descobre que sua família foi massacrada por um demônio. E pra piorar, Nezuko, sua irmã mais nova e única sobrevivente, também foi transformada num demônio. Arrasado com esta sombria realidade, Tanjiro decide se tornar um matador de demônios para fazer sua irmã voltar a ser humana, e para matar o demônio que matou sua família. Um triste conto sobre dois irmãos, onde os destinos dos humanos e dos demônios se entrelaçam, começa agora.",
+        "poster": "/img/demon_slayer.jpg",
+        "genero": ["Ação", "Aventura", "Shounen"],
+        "ano": "2019",
+        "temporadas": "4 temporadas",
+        "classificacao": "A16"
+    },
+    {
+        "id": "1",
+        "titulo": "Attack on Titan: Shingeki no Kyojin ",
+        "descricao": "Eren Jaeger jurou eliminar todos os Titãs, mas em uma batalha desesperada ele se torna aquilo que mais odeia. Com seus novos poderes, ele luta pela liberdade da humanidade, combatendo os monstros que ameaçam seu lar. Mesmo depois de derrotar a Titã Fêmea, Eren não consegue descansar - uma horda de Titãs se aproximam da Muralha Rose e a batalha em nome da humanidade continua!",
+        "poster": "/img/",
+        "genero": ["Ação", "Aventura", "Drama", "Fantasia", "Suspense"],
+        "ano": "2013",
+        "temporadas": "4 temporadas",
+        "classificacao": "A16"
+    }
+]
+}
