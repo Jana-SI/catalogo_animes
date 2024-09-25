@@ -1,9 +1,9 @@
-.card{
-    margin: 20px;
-    padding: 20px;
-}
-
-.card img{
-    width: 150px;
+.animeCard{
+    margin: 10px;
+    width: 200px;
     height: auto;
+    background-color: var(--azul);
+    border: 2px solid var(--azul);
+    color: var(--preto);
+    text-align: center;
 }

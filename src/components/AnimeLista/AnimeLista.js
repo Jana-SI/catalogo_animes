@@ -2,7 +2,7 @@ import AnimeCard from "../AnimeCard/AnimeCard";
 import AnimeDetalhes from "../AnimeDetalhes/AnimeDetalhes";
 import "./AnimeLista.css";
 import { useEffect, useState } from "react";
-import ReactPlayer from 'react-player';
+import ReactPlayer from "react-player";
 
 const AnimeLista = () => {
   const [animes, setAnimes] = useState([]);
@@ -40,36 +40,44 @@ const AnimeLista = () => {
           </div>
         ))}
       </div>
-      <AnimeDetalhes>
-        {/* Estrutura do Modal usando classes do Bootstrap 
-        Exibe detalhes se um anime estiver selecionado*/}
-        {showModal && animeClicado && (
-          <div
-            className="modal fade show"
-            style={{ display: "block" }}
-            onClick={fecharModal}
-          >
-            <div className="modal-dialog modal-dialog-centered">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h5 className="modal-title">{animeClicado.titulo}</h5>
-                  <button className="btn-close" data-bs-dismiss="modal" aria-label="Close" type="button" onClick={fecharModal}>
-                  </button>
-                </div>
-                <div className="modal-body">
-                    <p>{animeClicado.descricao}</p>
-                    <img src={animeClicado.poster} alt={`poster do anime ${animeClicado.titulo}`}/>
-                    <p>{animeClicado.genero}</p>
-                    <p>{animeClicado.ano}</p>
-                    <p>{animeClicado.temporadas}</p>
-                    <p>{animeClicado.classificacao}</p>
-                    <ReactPlayer url={animeClicado.trailer}/>
+      {animeClicado && (
+        <AnimeDetalhes
+          showModal={showModal}
+          fecharModal={fecharModal}
+          titulo={animeClicado.titulo}
+        >
+          <div className="card">
+            <div className="row g-0">
+              <div className="col-md-4">
+                <img
+                  src={animeClicado.poster}
+                  alt={`poster do anime ${animeClicado.titulo}`}
+                  className="img-fluid rounded-start"
+                />
+              </div>
+              <div className="col-md-8">
+                <div className="card-body">
+                  <p className="card-text">{animeClicado.descricao}</p>
+                  <ul className="list-group list-group-flush">
+                    <li class="list-group-item">
+                      {animeClicado.genero.map((genero, index) => (
+<span className="genero" key={index}>{genero}</span>
+                      ))}
+                      </li>
+                    <li class="list-group-item">{animeClicado.ano}</li>
+                    <li class="list-group-item">{animeClicado.temporadas}</li>
+                    <li class="list-group-item">Classificação indicativa {animeClicado.classificacao}
+                    </li>
+                  </ul>
+                  <div className="player">
+                <ReactPlayer url={animeClicado.trailer} />
+              </div>
                 </div>
               </div>
             </div>
           </div>
-        )}
-      </AnimeDetalhes>
+        </AnimeDetalhes>
+      )}
     </>
   );
 };

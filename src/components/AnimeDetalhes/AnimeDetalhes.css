@@ -1,0 +1,50 @@
+.animdeDetalhes .modal-dialog{
+    max-width: 60%;
+    width: auto;
+}
+
+.animdeDetalhes .modal-content{
+    max-height: 80vh;
+    overflow-y: auto;
+    background-color: var(--preto);
+    border: 2px solid var(--azul);
+}
+
+.animdeDetalhes .modal-header{
+    border-bottom: 2px solid var(--azul);
+}
+
+.animdeDetalhes .modal-header .btn-close{
+    color: var(--azul);
+}
+
+.animdeDetalhes .modal-body{
+    padding: 10px;
+}
+
+.animdeDetalhes .card-body{
+    padding-top: 10px;
+    text-align: justify;
+}
+
+.animdeDetalhes .list-group-item{
+    border-bottom: 2px solid var(--preto);
+}
+
+.animdeDetalhes .genero{
+    margin-right: 8px;
+    padding: 10px;
+    border: 2px solid var(--preto);
+}
+
+.animdeDetalhes .player{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.animdeDetalhes .card, .list-group-item{
+    background-color: var(--azul);
+    color: var(--preto);
+}
