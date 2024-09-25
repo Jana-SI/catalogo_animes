@@ -6,4 +6,5 @@
     border: 2px solid var(--azul);
     color: var(--preto);
     text-align: center;
+    cursor: pointer;
 }

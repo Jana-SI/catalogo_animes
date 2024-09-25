@@ -6,7 +6,7 @@ import AnimeLista from './components/AnimeLista/AnimeLista';
 
 function App() {
   return (
-    <div className="App">
+    <div className="container-fluid App">
       <Header />
       <AnimeLista />
       <Footer />
