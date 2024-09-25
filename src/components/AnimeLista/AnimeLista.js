@@ -1,5 +1,6 @@
 import AnimeCard from "../AnimeCard/AnimeCard";
 import AnimeDetalhes from "../AnimeDetalhes/AnimeDetalhes";
+import FiltroBusca from "../FiltroBusca/FiltroBusca";
 import "./AnimeLista.css";
 import { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
@@ -9,6 +10,7 @@ const AnimeLista = () => {
   // Estado para o anime selecionado
   const [animeClicado, setAnimeClicado] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [filtraAnimes, setFiltraAnimes] = useState([]);
 
   useEffect(() => {
     getAnimes();
@@ -20,7 +22,7 @@ const AnimeLista = () => {
     const data = await response.json();
 
     setAnimes(data);
-    console.log(data);
+    setFiltraAnimes(data);
   };
 
   const animeClick = (anime) => {
@@ -31,10 +33,28 @@ const AnimeLista = () => {
 
   const fecharModal = () => setShowModal(false);
 
+  const handlePesquisa = (pesquisaTermo, selecionadoGenero) => {
+    const filtrado = animes.filter((anime) => {
+      const tituloCorrespondente = anime.titulo
+        .toLowerCase()
+        .includes(pesquisaTermo.toLowerCase());
+
+      const generoCorrespondente = selecionadoGenero
+        ? anime.genero === selecionadoGenero
+        : true;
+
+      return tituloCorrespondente && generoCorrespondente;
+    });
+
+    setFiltraAnimes(filtrado);
+  };
+
   return (
     <>
+      <FiltroBusca pesquisa={handlePesquisa} />
       <div className="card-group">
-        {animes.map((anime) => (
+        {/* Condição para exibir a lista filtrada ou a lista completa */}
+        {(filtraAnimes.length > 0 ? filtraAnimes : animes).map((anime) => (
           <div key={anime.id} onClick={() => animeClick(anime)}>
             <AnimeCard anime={anime} />
           </div>
@@ -61,17 +81,20 @@ const AnimeLista = () => {
                   <ul className="list-group list-group-flush">
                     <li class="list-group-item">
                       {animeClicado.genero.map((genero, index) => (
-<span className="genero" key={index}>{genero}</span>
+                        <span className="genero" key={index}>
+                          {genero}
+                        </span>
                       ))}
-                      </li>
+                    </li>
                     <li class="list-group-item">{animeClicado.ano}</li>
                     <li class="list-group-item">{animeClicado.temporadas}</li>
-                    <li class="list-group-item">Classificação indicativa {animeClicado.classificacao}
+                    <li class="list-group-item">
+                      Classificação indicativa: {animeClicado.classificacao}
                     </li>
                   </ul>
                   <div className="player">
-                <ReactPlayer url={animeClicado.trailer} />
-              </div>
+                    <ReactPlayer url={animeClicado.trailer} />
+                  </div>
                 </div>
               </div>
             </div>
