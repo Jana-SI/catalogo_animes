@@ -14,12 +14,17 @@
     border-bottom: 2px solid var(--azul);
 }
 
-.animdeDetalhes .modal-header .btn-close{
+.animdeDetalhes .modal-header{
     color: var(--azul);
 }
 
 .animdeDetalhes .modal-body{
     padding: 10px;
+}
+
+.animdeDetalhes .btn{
+    background-color: var(--azul);
+    color: var(--azul);
 }
 
 .animdeDetalhes .card-body{
@@ -28,11 +33,14 @@
 }
 
 .animdeDetalhes .list-group-item{
+    display: flex;
+    flex-wrap: wrap;
     border-bottom: 2px solid var(--preto);
 }
 
 .animdeDetalhes .genero{
     margin-right: 8px;
+    margin-bottom: 8px;
     padding: 10px;
     border: 2px solid var(--preto);
 }

@@ -100,8 +100,8 @@ const AnimeLista = () => {
                           </span>
                         ))}
                       </li>
-                      <li class="list-group-item">{animeClicado.ano}</li>
-                      <li class="list-group-item">{animeClicado.temporadas}</li>
+                      <li class="list-group-item">Ano de lançamento: {animeClicado.ano}</li>
+                      <li class="list-group-item">Temporadas/Filmes: {animeClicado.temporadas_filmes}</li>
                       <li class="list-group-item">
                         Classificação indicativa: {animeClicado.classificacao}
                       </li>

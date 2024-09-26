@@ -17,7 +17,7 @@ const AnimeDetalhes = ({ showModal, fecharModal, titulo, children }) => {
             <div className="modal-header">
               <h5 className="modal-title">{titulo}</h5>
               <button
-                className="btn-close"
+                className="btn btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
                 type="button"

@@ -15,7 +15,7 @@
     border-radius: 5px;
 }
 
-.filtroBusca .form-control:hover, .filtroBusca .form-select:hover{
+.filtroBusca .form-select:hover{
     background-color: var(--preto);
     color: var(--azul);
     border: 2px solid var(--azul);
