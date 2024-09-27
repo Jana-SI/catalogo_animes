@@ -1,5 +1,6 @@
 import AnimeCard from "../AnimeCard/AnimeCard";
 import AnimeDetalhes from "../AnimeDetalhes/AnimeDetalhes";
+import Button from "../Button/Button";
 import FiltroBusca from "../FiltroBusca/FiltroBusca";
 import "./AnimeLista.css";
 import { useEffect, useState } from "react";
@@ -63,6 +64,20 @@ const AnimeLista = () => {
     }
   };
 
+  const deleteAnime = async(id, titulo) => {
+    const response = await fetch(`http://localhost:3005/Animes/${id}`, {
+      method: 'DELETE'
+    });
+
+    if (response.ok) { // Verifica se a resposta é bem-sucedida
+      alert(`O Anime ${titulo} foi deletado com sucesso`);
+      getAnimes();
+      fecharModal();
+    } else {
+      alert(`Erro ao deletar o anime ${titulo}`);
+    }
+  }
+
   return (
     <div className="row">
       <div className="col-md-6 offset-md-3">
@@ -85,6 +100,9 @@ const AnimeLista = () => {
             showModal={showModal}
             fecharModal={fecharModal}
             titulo={animeClicado.titulo}
+            id={animeClicado.id}
+            textButton="Deletar"
+            onDelete={() => deleteAnime(animeClicado.id, animeClicado.titulo)}
           >
             <div className="card">
               <div className="row g-0">
@@ -107,7 +125,7 @@ const AnimeLista = () => {
                         ))}
                       </li>
                       <li class="list-group-item">Ano de lançamento: {animeClicado.ano}</li>
-                      <li class="list-group-item">Temporadas/Filmes: {animeClicado.temporadas}</li>
+                      <li class="list-group-item">Temporadas/Filmes: {animeClicado.temporadas_filmes}</li>
                       <li class="list-group-item">
                         Classificação indicativa: {animeClicado.classificacao}
                       </li>
@@ -116,6 +134,11 @@ const AnimeLista = () => {
                       <ReactPlayer url={animeClicado.trailer} />
                     </div>
                   </div>
+                </div>
+                <div className="col-md-12">
+                <div className="card-footer text-end">
+                  <Button className="btn btn-danger" onClick={() => deleteAnime(animeClicado.id, animeClicado.titulo)}>Deletar</Button>
+              </div>
                 </div>
               </div>
             </div>

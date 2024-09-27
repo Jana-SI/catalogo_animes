@@ -28,9 +28,38 @@
         "Suspense"
       ],
       "ano": "2013",
-      "temporadas": "4 temporadas",
+      "temporadas_filmes": "4 temporadas",
       "classificacao": "16+",
       "trailer": "https://www.youtube.com/watch?v=6MRxT8kz30k"
+    },
+    {
+      "id": "2",
+      "titulo": "JUJUTSU KAISEN",
+      "descricao": "JUJUTSU KAISEN é um mangá escrito e ilustrado por Gege Akutami, serializado na Weekly Shonen Jump. Uma adaptação para anime foi lançada logo depois, com animação pelo estúdio MAPPA. Atualmente, já possui algumas temporadas, com a 1ª temporada (24 episódios) sendo seguida pelo aclamado filme prequel JUJUTSU KAISEN 0 e, em seguida, a 2ª temporada sendo lançada em julho de 2023. A série está disponível em versão legendada e dublada.\n\nAcompanhe o jovem Yuji Itadori nesta história de ação sombria e sobrenatural, enquanto ele treina as perigosas artes dos Feiticeiros Jujutsu e explora o violento mundo das maldições!\n\nYuji Itadori come um dedo amaldiçoado para salvar um colega de turma e agora Ryomen Sukuna, um terrível e poderoso feiticeiro conhecido como o Rei das Maldições, habita na alma de Itadori. As maldições são terrores sobrenaturais criados a partir das emoções humanas negativas. Esta energia amaldiçoada pode ser usada como fonte de energia, tanto pelos Feiticeiros Jujutsu como pelos espíritos amaldiçoados.\n\nGuiado pelos Feiticeiros Jujutsu, Yuji Itadori junta-se à Escola Jujutsu de Tóquio, uma organização que enfrenta as maldições. Sob a liderança do professor Satoru Gojo, Itadori faz amizade com Megumi Fushiguro e Nobara Kugisaki, ambos alunos do primeiro ano.",
+      "poster": "https://i.pinimg.com/originals/04/b4/7c/04b47c250ddf78697024360abfa33714.jpg",
+      "genero": [
+        "Ação",
+        "Shounen",
+        "Sobrenatural"
+      ],
+      "ano": "2020",
+      "temporadas_filmes": "2 Temporadas e 1 Filme",
+      "classificacao": "16+",
+      "trailer": "https://www.youtube.com/watch?v=ynr6gnyu9NE"
+    },
+    {
+      "id": "3",
+      "titulo": "Kaiju No. 8",
+      "descricao": "Em um mundo assolado por criaturas ameaçadoras conhecidas como \"Kaiju\", Kafka Hibino sempre sonhou em se alistar na Força de Defesa do Japão para derrotá-los.\n\n\n\nKafka prometeu à sua amiga de infância, Mina Ashiro, que eles derrotariam esses monstros juntos. Com o tempo, circunstâncias da vida os forçaram a seguir caminhos diferentes, fazendo com que Kafka abandonasse sua ambição. Ele conseguiu um emprego na Monster Sweeper, Inc., uma empresa de limpeza profissional especializada em lidar com as consequências das batalhas contra Kaiju. Por outro lado, Mina Ashiro agora é a capitã da 3ª Divisão da Força de Defesa. No momento, ele não é considerado digno de lutar contra os Kaiju ao lado dela.\n\n\n\nNo trabalho, Kafka acaba conhecendo o altamente motivado Reno Ichikawa. A determinação incansável de Reno de se juntar à Força de Defesa não deixa espaço para o fracasso. Sua perseverança reacende a ambição de Kafka de estar ao lado de Mina enquanto protegem a humanidade dos Kaiju juntos! Um sonho congelado pelo tempo, descongelado por uma promessa ardente!",
+      "poster": "https://i.pinimg.com/originals/9f/3b/2a/9f3b2ad4da7ab7926c65487addc5b906.jpg",
+      "genero": [
+        "Aventura",
+        "Ficção Científica"
+      ],
+      "ano": "2024",
+      "temporadas_filmes": "1 temporada",
+      "classificacao": "14+",
+      "trailer": "https://www.youtube.com/watch?v=4LMhnFrjQAk"
     }
   ]
 }

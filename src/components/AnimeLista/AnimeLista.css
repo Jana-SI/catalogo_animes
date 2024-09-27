@@ -1,0 +1,22 @@
+ 
+  .card {
+    display: flex;
+    flex-direction: column; /* Faz com que o conteúdo do card se empilhe verticalmente */
+    height: 95%; /* Faz com que o card ocupe toda a altura do grid */
+  }
+
+.card-footer{
+    border-top: 2px solid var(--preto);
+}
+
+.card-footer .btn-danger{
+    background-color: #dc3545;
+    color: var(--preto);
+    border: 2px solid var(--preto);
+}
+
+.card-footer .btn-danger:hover{
+    background-color: var(--preto);
+    color: #dc3545;
+    border: 2px solid #dc3545;
+}

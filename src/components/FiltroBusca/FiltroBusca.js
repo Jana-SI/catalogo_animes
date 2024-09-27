@@ -7,6 +7,8 @@ import Button from "../Button/Button";
 const FiltroBusca = ({ pesquisa, ...props }) => {
   const [pesquisaTermo, setPesquisaTermo] = useState("");
   const [selecionadoGenero, setSelecionadoGenero] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const [modalContent, setModalContent] = useState(null);
 
   const handleChangePesquisa = (event) => {
     const termo = event.target.value;
@@ -18,6 +20,15 @@ const FiltroBusca = ({ pesquisa, ...props }) => {
     const genero = event.target.value;
     setSelecionadoGenero(genero);
     pesquisa(pesquisaTermo, genero);
+  };
+
+  const handleAddAnimeClick = () => {
+    setModalContent('form'); // Define que o conteúdo do modal é o formulário
+    setShowModal(true); // Abre o modal
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false); // Fecha o modal
   };
 
   return (
@@ -59,19 +70,26 @@ const FiltroBusca = ({ pesquisa, ...props }) => {
           <option value="Sobrenatural">Sobrenatural</option>
           <option value="Suspense">Suspense</option>
         </select>
-        <Button className="btn"onClick={props.exibir}>
+        <Button className="btn"onClick={handleAddAnimeClick}>
         Adicionar Anime
           </Button>
 
-        {props.showModal && (
-        <AnimeDetalhes
-          showModal={props.showModal}
-          fecharModal={props.fechar}
-          titulo="Adicionar Anime"
-        >
-          <AddAnimeForm getAnimes={props.getAnimes} fecharModal={props.fechar}/>
-        </AnimeDetalhes>
-      )}
+          {showModal && (
+          <AnimeDetalhes
+            showModal={showModal}
+            fecharModal={handleCloseModal}
+            titulo={modalContent === 'form' ? "Adicionar Anime" : "Detalhes do Anime"}
+            textButton={modalContent === 'form' ? "Enviar" : "Deletar"}
+            onDelete={modalContent === 'details' ? props.onDelete : undefined}
+          >
+            {modalContent === 'form' ? (
+              <AddAnimeForm getAnimes={props.getAnimes} fecharModal={handleCloseModal} />
+            ) : (
+              // Aqui você pode renderizar o conteúdo dos detalhes do anime, se necessário
+              <div>Conteúdo dos detalhes do anime aqui</div>
+            )}
+          </AnimeDetalhes>
+        )}
       </div>
     </div>
   );

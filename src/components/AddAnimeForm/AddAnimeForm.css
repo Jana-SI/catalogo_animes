@@ -1,23 +1,42 @@
-.animeForm input, .animeForm textarea{
-    border: 2px solid var(--azul);
-    background-color: var(--azul);
+.animeForm input,
+.animeForm textarea {
+  border: 2px solid var(--azul);
+  background-color: var(--azul);
 }
 
-.animeForm p, .animeForm .form-check-label{
-    color: var(--azul);
+.animeForm p,
+.animeForm .form-check-label {
+  color: var(--azul);
 }
 
-.animeForm .btn{
-    color: var(--preto) !important;
+.animeForm .btn {
+  color: var(--preto) !important;
 }
 
-.animeForm .btn:hover{
-    background-color: var(--preto);
-    color: var(--azul) !important;
-    border: 2px solid var(--azul);
+.animeForm .btn:hover {
+  background-color: var(--preto);
+  color: var(--azul) !important;
+  border: 2px solid var(--azul);
 }
 
 .animeForm .form-check-input:checked {
-    background-color: #4CAF50; /* Cor verde */
-    border-color: #4CAF50;      /* Borda verde */
-  }
+  background-color: #4caf50; /* Cor verde */
+  border-color: #4caf50; /* Borda verde */
+}
+
+.btnEnviar{
+    border-top: 2px solid var(--azul);
+    padding: 10px;
+}
+
+.animeForm .btnEnviar .btn {
+  background-color: #198754;
+  color: var(--preto);
+  border: 2px solid var(--preto);
+}
+
+.animeForm .btnEnviar .btn:hover {
+  background-color: var(--preto);
+  color: #198754 !important;
+  border: 2px solid #198754;
+}

@@ -22,11 +22,6 @@
     padding: 10px;
 }
 
-.animdeDetalhes .btn{
-    background-color: var(--azul);
-    color: var(--azul);
-}
-
 .animdeDetalhes .card-body{
     padding-top: 10px;
     text-align: justify;

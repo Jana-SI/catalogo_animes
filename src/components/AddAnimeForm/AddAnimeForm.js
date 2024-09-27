@@ -41,7 +41,7 @@ const AddAnimeForm = ({ getAnimes, fecharModal }) => {
     }
 
     // Lógica de validação específica para o campo 'classificacao'
-    if (name === "classificacao" && !/^\+?\d*$/.test(value)) {
+    if (name === "classificacao" && !/^\d+\+$/.test(value)) {
       return; // Permitir apenas números e um '+' no início
     }
 
@@ -95,9 +95,8 @@ const AddAnimeForm = ({ getAnimes, fecharModal }) => {
     const data = await response.json();
 
     alert(`O Anime ${data.titulo} Cadastrado com sucesso`);
-    fecharModal(false);
-    getAnimes();
-
+    fecharModal(); // Chama a função para fechar o modal após o envio
+    getAnimes(); // Atualiza a lista de animes
     // Resetando o formulário após o envio
     setAnimeForm({
       titulo: "",
@@ -259,11 +258,9 @@ const AddAnimeForm = ({ getAnimes, fecharModal }) => {
               </div>
             </div>
           </div>
-          <div className="d-grid gap-2 col-2 mx-auto">
-            <Button className="btn" type="submit">
-              Enviar
-              </Button>
-          </div>
+          <div className="col-12 text-end btnEnviar">
+          <Button className="btn" type="submit">Enviar</Button>
+        </div>
         </div>
       </form>
     </div>
