@@ -19,18 +19,35 @@ const AnimeLista = () => {
   }, []);
 
   const getAnimes = async () => {
-    const response = await fetch("http://localhost:3005/Animes");
-
-    const data = await response.json();
-
-    setAnimes(data);
-    setFiltraAnimes(data);
-    if (data.length === 0) {
-      setMensagem("Nenhum anime encontrado no catálogo."); // Define a mensagem se o banco estiver vazio
-    } else {
-      setMensagem(""); // Limpa a mensagem se houver animes
+    // Criando uma Promise para o fetch
+    const fetchAnimes = new Promise((resolve, reject) => {
+      fetch("http://localhost:3005/Animes")
+        .then(response => {
+          if (!response.ok) {
+            reject("Erro ao buscar animes");
+          }
+          return response.json();
+        })
+        .then(data => resolve(data))
+        .catch(error => reject(error));
+    });
+  
+    try {
+      const data = await fetchAnimes; // Consumindo a Promise com await
+      setAnimes(data);
+      setFiltraAnimes(data);
+  
+      if (data.length === 0) {
+        setMensagem("Nenhum anime encontrado no catálogo.");
+      } else {
+        setMensagem("");
+      }
+    } catch (error) {
+      console.error("Erro ao buscar animes:", error);
+      setMensagem("Erro ao carregar animes.");
     }
   };
+  
 
   const animeClick = (anime) => {
     // Atualiza o estado com o anime selecionado
@@ -64,19 +81,31 @@ const AnimeLista = () => {
     }
   };
 
-  const deleteAnime = async(id, titulo) => {
-    const response = await fetch(`http://localhost:3005/Animes/${id}`, {
-      method: 'DELETE'
+  const deleteAnime = async (id, titulo) => {
+    const deleteRequest = new Promise((resolve, reject) => {
+      fetch(`http://localhost:3005/Animes/${id}`, {
+        method: 'DELETE'
+      })
+        .then(response => {
+          if (response.ok) {
+            resolve();
+          } else {
+            reject("Erro ao deletar o anime");
+          }
+        })
+        .catch(error => reject(error));
     });
-
-    if (response.ok) { // Verifica se a resposta é bem-sucedida
+  
+    try {
+      await deleteRequest; // Consumindo a Promise com await
       alert(`O Anime ${titulo} foi deletado com sucesso`);
-      getAnimes();
+      getAnimes(); // Atualiza a lista
       fecharModal();
-    } else {
-      alert(`Erro ao deletar o anime ${titulo}`);
+    } catch (error) {
+      alert(`Erro ao deletar o anime ${titulo}: ${error}`);
     }
-  }
+  };
+  
 
   return (
     <div className="row">

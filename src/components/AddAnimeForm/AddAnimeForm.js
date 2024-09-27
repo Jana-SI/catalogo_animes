@@ -17,13 +17,25 @@ const AddAnimeForm = ({ getAnimes, fecharModal }) => {
 
   const [ultimoId, setUltimoId] = useState(null);
 
-  const buscarUltimoId = async () => {
-    const response = await fetch("http://localhost:3005/Animes");
-    const data = await response.json();
-    const ids = data.map((anime) => parseInt(anime.id));
-    const maxId = Math.max(...ids);
+  const validarImagem = (url) => {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.src = url;
+      img.onload = () => resolve(true); // A imagem carregou com sucesso
+      img.onerror = () => resolve(false); // Erro ao carregar a imagem
+    });
+  };
 
-    setUltimoId(maxId);
+  const buscarUltimoId = () => {
+    return fetch("http://localhost:3005/Animes", {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        const ids = data.map((anime) => parseInt(anime.id));
+        const maxId = Math.max(...ids);
+        setUltimoId(maxId);
+      });
   };
 
   useEffect(() => {
@@ -40,9 +52,12 @@ const AddAnimeForm = ({ getAnimes, fecharModal }) => {
       }
     }
 
-    // Lógica de validação específica para o campo 'classificacao'
-    if (name === "classificacao" && !/^\d+\+$/.test(value)) {
-      return; // Permitir apenas números e um '+' no início
+    // Lógica de validação para o campo 'classificacao'
+    if (name === "classificacao") {
+      // Permitir a digitação enquanto o valor está incompleto
+      if (!/^\d*\+?$/.test(value) || value.length > 3) {
+        return; // Permite números e '+' enquanto o usuário digita
+      }
     }
 
     setAnimeForm({
@@ -70,43 +85,51 @@ const AddAnimeForm = ({ getAnimes, fecharModal }) => {
   };
 
   // Função para lidar com o envio do formulário
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault(); // Impede o recarregamento da página
 
-    // Verifica se o título e pelo menos um gênero estão preenchidos
-    if (!animeForm.titulo || animeForm.genero.length === 0) {
-      alert("Por favor, preencha o título e selecione pelo menos um gênero.");
-      return;
-    }
+    // Valida se o link da imagem (poster) é válido
+    validarImagem(animeForm.poster).then((imagemValida) => {
+      if (!imagemValida) {
+        alert("A URL da imagem não é válida. Por favor, insira um link de imagem válido.");
+        return;
+      }
 
-    const newAnime = {
-      id: (ultimoId + 1).toString(), // Incrementa o ID a partir do último
-      ...animeForm,
-    };
+      // Verifica se o título e pelo menos um gênero estão preenchidos
+      if (!animeForm.titulo || animeForm.genero.length === 0) {
+        alert("Por favor, preencha o título e selecione pelo menos um gênero.");
+        return;
+      }
 
-    const response = await fetch("http://localhost:3005/Animes", {
-      method: "POST",
-      headers: new Headers({
-        "Content-Type": "application/json",
-      }),
-      body: JSON.stringify(newAnime),
-    });
+      const newAnime = {
+        id: (ultimoId + 1).toString(), // Incrementa o ID a partir do último
+        ...animeForm,
+      };
 
-    const data = await response.json();
-
-    alert(`O Anime ${data.titulo} Cadastrado com sucesso`);
-    fecharModal(); // Chama a função para fechar o modal após o envio
-    getAnimes(); // Atualiza a lista de animes
-    // Resetando o formulário após o envio
-    setAnimeForm({
-      titulo: "",
-      descricao: "",
-      poster: "",
-      genero: [],
-      ano: "",
-      temporadas_filmes: "",
-      classificacao: "",
-      trailer: "",
+      fetch("http://localhost:3005/Animes", {
+        method: "POST",
+        headers: new Headers({
+          "Content-Type": "application/json",
+        }),
+        body: JSON.stringify(newAnime),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          alert(`O Anime ${data.titulo} Cadastrado com sucesso`);
+          fecharModal(); // Chama a função para fechar o modal após o envio
+          getAnimes(); // Atualiza a lista de animes
+          // Resetando o formulário após o envio
+          setAnimeForm({
+            titulo: "",
+            descricao: "",
+            poster: "",
+            genero: [],
+            ano: "",
+            temporadas_filmes: "",
+            classificacao: "",
+            trailer: "",
+          });
+        });
     });
   };
 
@@ -205,7 +228,7 @@ const AddAnimeForm = ({ getAnimes, fecharModal }) => {
                     role="switch"
                     id="genero"
                   />
-                  <label className="form-check-label" for="genero">
+                  <label className="form-check-label" htmlFor="genero">
                     {g}
                   </label>
                 </div>
@@ -259,8 +282,10 @@ const AddAnimeForm = ({ getAnimes, fecharModal }) => {
             </div>
           </div>
           <div className="col-12 text-end btnEnviar">
-          <Button className="btn" type="submit">Enviar</Button>
-        </div>
+            <Button className="btn" type="submit">
+              Enviar
+            </Button>
+          </div>
         </div>
       </form>
     </div>
