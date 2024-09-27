@@ -1,5 +1,12 @@
 .App{
+    width: 100%;
+    display: block;
+    margin: 0 auto;
     height: 100vh;
     background-color: var(--preto);
     color: var(--azul);
+}
+
+.p{
+    font-family: "Nunito", sans-serif;
 }

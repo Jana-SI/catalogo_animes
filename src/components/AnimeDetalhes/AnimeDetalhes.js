@@ -1,3 +1,4 @@
+import Button from '../Button/Button';
 import './AnimeDetalhes.css';
 
 const AnimeDetalhes = ({ showModal, fecharModal, titulo, children }) => {
@@ -10,19 +11,18 @@ const AnimeDetalhes = ({ showModal, fecharModal, titulo, children }) => {
         <div
         className="modal fade show animdeDetalhes"
         style={{ display: "block" }}
-        onClick={fecharModal}
+        
       >
         <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title">{titulo}</h5>
-              <button
-                className="btn btn-close"
+              <Button className="btn btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
                 type="button"
                 onClick={fecharModal}
-              ></button>
+              />
             </div>
             <div className="modal-body">
             {children}

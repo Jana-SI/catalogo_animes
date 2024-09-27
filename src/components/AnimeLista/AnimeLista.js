@@ -24,6 +24,11 @@ const AnimeLista = () => {
 
     setAnimes(data);
     setFiltraAnimes(data);
+    if (data.length === 0) {
+      setMensagem("Nenhum anime encontrado no catálogo."); // Define a mensagem se o banco estiver vazio
+    } else {
+      setMensagem(""); // Limpa a mensagem se houver animes
+    }
   };
 
   const animeClick = (anime) => {
@@ -32,6 +37,7 @@ const AnimeLista = () => {
     setShowModal(true);
   };
 
+  const exibirForm = () => setShowModal(true);
   const fecharModal = () => setShowModal(false);
 
   const handlePesquisa = (pesquisaTermo, selecionadoGenero) => {
@@ -59,13 +65,13 @@ const AnimeLista = () => {
 
   return (
     <div className="row">
-      <div className="col-md-4 offset-md-4">
-        <FiltroBusca pesquisa={handlePesquisa} />
-      </div>
+      <div className="col-md-6 offset-md-3">
+        <FiltroBusca pesquisa={handlePesquisa} onClick={exibirForm} showModal={showModal} exibir={exibirForm} fechar={fecharModal} getAnimes={getAnimes}/>
+      </div> 
       <div className="col-12">
-        <div className="card-group">
+        <div className="d-flex justify-content-center flex-wrap">
           {filtraAnimes.length > 0 ? (
-            filtraAnimes.map((anime) => (
+            filtraAnimes.sort((a, b) => a.titulo.localeCompare(b.titulo)).map((anime) => (
               <div key={anime.id} onClick={() => animeClick(anime)}>
                 <AnimeCard anime={anime} />
               </div>
@@ -101,7 +107,7 @@ const AnimeLista = () => {
                         ))}
                       </li>
                       <li class="list-group-item">Ano de lançamento: {animeClicado.ano}</li>
-                      <li class="list-group-item">Temporadas/Filmes: {animeClicado.temporadas_filmes}</li>
+                      <li class="list-group-item">Temporadas/Filmes: {animeClicado.temporadas}</li>
                       <li class="list-group-item">
                         Classificação indicativa: {animeClicado.classificacao}
                       </li>

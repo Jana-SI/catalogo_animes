@@ -1,7 +1,10 @@
 import { useState } from "react";
+import AddAnimeForm from "../AddAnimeForm/AddAnimeForm";
+import AnimeDetalhes from "../AnimeDetalhes/AnimeDetalhes";
 import "./FiltroBusca.css";
+import Button from "../Button/Button";
 
-const FiltroBusca = ({ pesquisa }) => {
+const FiltroBusca = ({ pesquisa, ...props }) => {
   const [pesquisaTermo, setPesquisaTermo] = useState("");
   const [selecionadoGenero, setSelecionadoGenero] = useState("");
 
@@ -56,6 +59,19 @@ const FiltroBusca = ({ pesquisa }) => {
           <option value="Sobrenatural">Sobrenatural</option>
           <option value="Suspense">Suspense</option>
         </select>
+        <Button className="btn"onClick={props.exibir}>
+        Adicionar Anime
+          </Button>
+
+        {props.showModal && (
+        <AnimeDetalhes
+          showModal={props.showModal}
+          fecharModal={props.fechar}
+          titulo="Adicionar Anime"
+        >
+          <AddAnimeForm getAnimes={props.getAnimes} fecharModal={props.fechar}/>
+        </AnimeDetalhes>
+      )}
       </div>
     </div>
   );

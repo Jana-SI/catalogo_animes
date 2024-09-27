@@ -5,14 +5,18 @@
 
 .filtroBusca .form-select{
     width: 100%;
-    max-width: 150px;
+    max-width: 200px;
 }
 
-.filtroBusca .form-control, .filtroBusca .form-select{
+.filtroBusca .form-control, .filtroBusca .form-select, .filtroBusca button{
     background-color: var(--azul);
     color: var(--preto);
     border: 2px solid var(--azul);
     border-radius: 5px;
+}
+
+.filtroBusca label{
+    color: var(--preto);
 }
 
 .filtroBusca .form-select:hover{
@@ -20,4 +24,8 @@
     color: var(--azul);
     border: 2px solid var(--azul);
     border-radius: 5px;
+}
+
+.filtroBusca input::placeholder{
+    color: var(--preto);
 }

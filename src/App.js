@@ -1,14 +1,17 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
-import AnimeLista from './components/AnimeLista/AnimeLista';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import AnimeLista from "./components/AnimeLista/AnimeLista";
 
 function App() {
   return (
-    <div className="container-fluid App">
+    <div className="App">
       <Header />
-      <AnimeLista />
+      <div className="container-fluid ">
+        <AnimeLista />
+      </div>
+
       <Footer />
     </div>
   );

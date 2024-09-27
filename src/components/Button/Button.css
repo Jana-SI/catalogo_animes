@@ -1,0 +1,14 @@
+button, .btn{
+
+        background-color: var(--azul);
+        color: var(--preto);
+        border: 2px solid var(--azul);
+        border-radius: 5px;
+}
+
+button:hover, .btn:hover{
+    background-color: var(--preto);
+    color: var(--azul);
+    border: 2px solid var(--azul);
+    border-radius: 5px;
+}

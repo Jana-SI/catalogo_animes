@@ -1,0 +1,10 @@
+.form-floating .form-control:focus ~ label::after,
+.form-floating .form-control:not(:placeholder-shown) ~ label::after {
+  background-color: var(--azul) !important;
+  border: 2px solid var(--preto);
+}
+
+.form-floating .form-control:focus + label,
+.form-floating .form-control:not(:placeholder-shown) + label {
+  color: var(--preto) !important;
+}

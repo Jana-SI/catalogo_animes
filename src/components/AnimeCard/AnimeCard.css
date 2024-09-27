@@ -1,10 +1,16 @@
-.animeCard{
-    margin: 10px;
-    width: 200px;
-    height: auto;
-    background-color: var(--azul);
-    border: 2px solid var(--azul);
-    color: var(--preto);
-    text-align: center;
-    cursor: pointer;
+.animeCard {
+  margin: 10px;
+  width: 200px;
+  height: auto;
+  background-color: var(--azul);
+  border: 2px solid var(--azul);
+  color: var(--preto);
+  text-align: center;
+  cursor: pointer;
+}
+
+.animeCard h5 {
+  font-family: "Righteous", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }

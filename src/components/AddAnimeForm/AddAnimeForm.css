@@ -1,0 +1,23 @@
+.animeForm input, .animeForm textarea{
+    border: 2px solid var(--azul);
+    background-color: var(--azul);
+}
+
+.animeForm p, .animeForm .form-check-label{
+    color: var(--azul);
+}
+
+.animeForm .btn{
+    color: var(--preto) !important;
+}
+
+.animeForm .btn:hover{
+    background-color: var(--preto);
+    color: var(--azul) !important;
+    border: 2px solid var(--azul);
+}
+
+.animeForm .form-check-input:checked {
+    background-color: #4CAF50; /* Cor verde */
+    border-color: #4CAF50;      /* Borda verde */
+  }
