@@ -261,6 +261,20 @@ const AddAnimeForm = ({ getAnimes, fecharModal }) => {
                   />
                 </div>
               </div>
+              <div className="col-12">
+                {/* Campo de temporadas/filme */}
+                <div className="form-floating mb-3">
+                  <Input
+                    type="text"
+                    name="temporadas_filmes"
+                    value={animeForm.temporadas_filmes}
+                    onChange={(event) => {
+                      handleOnChange(event);
+                    }}
+                    label="Temporadas e/ou filmes"
+                  />
+                </div>
+              </div>
             </div>
           </div>
           <div className="col-12 text-end btnEnviar">
