@@ -1,4 +1,4 @@
-import Button from "../Button/Button"; 
+import Button from "../Button/Button.js"; 
 import Input from "../Input/Input"; 
 import "./AddAnimeForm.css";
 import { useState, useEffect } from "react"; 
@@ -263,8 +263,10 @@ const AddAnimeForm = ({ getAnimes, fecharModal }) => {
               </div>
             </div>
           </div>
-          <div className="col-12">
-            <Button type="submit" text="Adicionar" />
+          <div className="col-12 text-end btnEnviar">
+            <Button className="btn" type="submit">
+              Enviar
+            </Button>
           </div>
         </div>
       </form>

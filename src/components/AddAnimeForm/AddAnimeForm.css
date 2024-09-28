@@ -30,13 +30,13 @@
 }
 
 .animeForm .btnEnviar .btn {
-  background-color: #198754;
-  color: var(--preto);
-  border: 2px solid var(--preto);
+  background-color: #198754 !important;
+  color: var(--preto) !important;
+  border: 2px solid var(--preto) !important;
 }
 
 .animeForm .btnEnviar .btn:hover {
-  background-color: var(--preto);
+  background-color: var(--preto) !important;
   color: #198754 !important;
-  border: 2px solid #198754;
+  border: 2px solid #198754 !important;
 }

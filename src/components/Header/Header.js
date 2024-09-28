@@ -1,6 +1,6 @@
 import "./Header.css";
 
-{/* Define o elemento header fluid */}
+/* Define o elemento header fluid */
 const Header = () => {
   return (
     <header className="cabecalho"> 

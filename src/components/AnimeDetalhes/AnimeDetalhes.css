@@ -1,53 +1,53 @@
-.animdeDetalhes .modal-dialog{
+.animeDetalhes .modal-dialog{
     max-width: 60%;
     width: auto;
 }
 
-.animdeDetalhes .modal-content{
+.animeDetalhes .modal-content{
     max-height: 80vh;
     overflow-y: auto;
     background-color: var(--preto);
     border: 2px solid var(--azul);
 }
 
-.animdeDetalhes .modal-header{
+.animeDetalhes .modal-header{
     border-bottom: 2px solid var(--azul);
 }
 
-.animdeDetalhes .modal-header{
+.animeDetalhes .modal-header{
     color: var(--azul);
 }
 
-.animdeDetalhes .modal-body{
+.animeDetalhes .modal-body{
     padding: 10px;
 }
 
-.animdeDetalhes .card-body{
+.animeDetalhes .card-body{
     padding-top: 10px;
     text-align: justify;
 }
 
-.animdeDetalhes .list-group-item{
+.animeDetalhes .list-group-item{
     display: flex;
     flex-wrap: wrap;
     border-bottom: 2px solid var(--preto);
 }
 
-.animdeDetalhes .genero{
+.animeDetalhes .genero{
     margin-right: 8px;
     margin-bottom: 8px;
     padding: 10px;
     border: 2px solid var(--preto);
 }
 
-.animdeDetalhes .player{
+.animeDetalhes .player{
     display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 5px;
 }
 
-.animdeDetalhes .card, .list-group-item{
+.animeDetalhes .card, .list-group-item{
     background-color: var(--azul);
     color: var(--preto);
 }
